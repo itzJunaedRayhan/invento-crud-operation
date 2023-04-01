@@ -23,7 +23,6 @@ function App() {
   function handleDelete(id) {
     let info = JSON.parse(localStorage.getItem("comments")).filter((item) => item.id != id);
     localStorage.setItem("comments", JSON.stringify(info));
-    console.log(JSON.parse(localStorage.getItem("comments")));
     setCount(count++);
   }
 

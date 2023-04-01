@@ -8,7 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 function Update(props) {
     const {id} = useParams();
     const [inputData, setInputData] = useState({
-        id: id,
+        id: Number(id),
         name: '',
         email: '',
         body: '',
@@ -17,10 +17,10 @@ function Update(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        let arr = JSON.parse(localStorage.getItem("comments"));
-        let data = JSON.parse(localStorage.getItem("comments")).findIndex(item => item.id == id);
+        let arr = [...JSON.parse(localStorage.getItem("comments"))];
+        let data = JSON.parse(localStorage.getItem("comments")).findIndex(item => item.id === Number(id));
         if (data) {
-            arr[id] = inputData;
+            arr[data] = inputData;
             localStorage.setItem("comments", JSON.stringify(arr));
         }
         navigate('/');

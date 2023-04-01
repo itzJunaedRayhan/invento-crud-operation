@@ -7,13 +7,11 @@ import { Link, useNavigate } from 'react-router-dom'
 function Home(props) {
     const navigate = useNavigate();
     let data = JSON.parse(localStorage.getItem("comments"));
-    console.log(data)
     
 
   return (
     <div className='container '>
         <h2>Crud Operation with JSON Placeholder</h2>
-        {/* <p>{props.count} Item Deleted</p> */}
         <Link to="/create" className='btn btn-success my-3'>Create +</Link>
         <table className='table'>
             <thead>
@@ -25,7 +23,7 @@ function Home(props) {
                 </tr>
             </thead>
             <tbody>
-                {data.reverse().map((d, i)=> (
+                {data?.reverse().map((d, i)=> (
                     <tr key={i}>
                         <td>{d?.name}</td>
                         <td>{d?.email}</td>

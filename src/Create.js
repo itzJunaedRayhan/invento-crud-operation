@@ -2,23 +2,30 @@ import React from 'react';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Create = (props) => {
+const Create = () => {
     let data = JSON.parse(localStorage.getItem("comments"));
     const navigate = useNavigate();
+    let obj = {};
     
     const [inputData, setInputData] = useState({
-        id : data.length++,
+        id : Number(data.length + 1),
         name: '',
         email: '',
         body: '',
     });
 
+    
+
+
+
     let handleSubmit = (event) => {
         event.preventDefault();
+        console.log(data);
         data.push(inputData);
         localStorage.setItem("comments", JSON.stringify(data));
-        navigate("/")
+        navigate("/");
     }
+
     return (
         <div className='d-flex w-100 vh-100 justify-content-center align-items-center'>
             <div className='w-50 border bg-secondary text-white p-5'>
