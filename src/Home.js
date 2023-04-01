@@ -28,7 +28,6 @@ function Home(props) {
                         <td>{d?.name}</td>
                         <td>{d?.email}</td>
                         <td>{d?.body}</td>
-                        <td>{d?.id}</td>
                         <td className='d-flex'>
                             <Link className='text-decoration-none btn btn-sm btn-success' to={`/update/${d?.id}`}>Update</Link>
                             <Link className=' mx-2 text-decoration-none btn btn-sm btn-danger' onClick={e => props.handleDelete(d?.id)}>Delete</Link>
