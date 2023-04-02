@@ -1,11 +1,8 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
 function Home(props) {
-    const navigate = useNavigate();
     let data = JSON.parse(localStorage.getItem("comments"));
     
 

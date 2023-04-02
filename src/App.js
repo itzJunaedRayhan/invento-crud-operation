@@ -14,8 +14,10 @@ function App() {
     useEffect(()=> {
       axios.get('https://jsonplaceholder.typicode.com/comments/')
       .then(res => {
-          localStorage.setItem("comments", JSON.stringify(res.data));
-          setComments(res.data);
+          if (!JSON.parse(localStorage.getItem("comments"))) {
+            localStorage.setItem("comments", JSON.stringify(res.data));
+            setComments(res.data);
+          }
       })
       .catch(err => console.log(err))
   }, []);
